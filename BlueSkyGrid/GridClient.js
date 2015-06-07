@@ -28,17 +28,17 @@ define(["require", "exports", './GridController', './SampleData', './CurrencyMan
             // hand over the comment dom element (so we can write out comments);
             this._$comment = $comment;
             // create a grid light controller
-            this._lg = new __gc.GridController();
-            this._lg.createGrid($grid);
+            this._gc = new __gc.GridController();
+            this._gc.createGrid($grid);
             // supply a callback to be informed when the user selects a row
-            this._lg.cbSelectedDataItem = function (dataItem) {
+            this._gc.cbSelectedDataItem = function (dataItem) {
                 $comment.text("Row selected - single click - code: " + dataItem.code);
             };
             // supply a callback to be informed when the user double clicks a row
-            this._lg.cbSelectedDataItemDblClick = function (dataItem) {
+            this._gc.cbSelectedDataItemDblClick = function (dataItem) {
                 $comment.text("Row selected - double click - code: " + dataItem.code);
             };
-            this._lg.cbStyling = function (coldef, item) {
+            this._gc.cbStyling = function (coldef, item) {
                 // define a new CellStyleProperties object we will return
                 var styleProp = new __gc.CellStyleProperies();
                 // now check which column is being checked and set any style properties appropriately 
@@ -95,7 +95,7 @@ define(["require", "exports", './GridController', './SampleData', './CurrencyMan
             // create some sample data
             var data = __data.generateSampleData(rowcount);
             // simply pass on the data (and their definitions) to the grid light 
-            this._lg.setData(data, this._coldefs).done(function () {
+            this._gc.setData(data, this._coldefs).done(function () {
                 self._$comment.text("Grid loaded with " + rowcount + " rows."); // let user know
             });
         };

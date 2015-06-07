@@ -8,7 +8,7 @@ import __cm = require('./CurrencyManager');
 // -------------------------------------------------------------------------------------
 export class GridClient {
 
-    private _lg: __gc.GridController;
+    private _gc: __gc.GridController;
     private _coldefs: __gc.ColDefinition[];
     private _$comment: JQuery = undefined;
     
@@ -41,20 +41,20 @@ export class GridClient {
         this._$comment = $comment;
 
         // create a grid light controller
-        this._lg = new __gc.GridController();
-        this._lg.createGrid($grid);
+        this._gc = new __gc.GridController();
+        this._gc.createGrid($grid);
 
         // supply a callback to be informed when the user selects a row
-        this._lg.cbSelectedDataItem = function (dataItem) {
+        this._gc.cbSelectedDataItem = function (dataItem) {
             $comment.text("Row selected - single click - code: " + dataItem.code);
         };
 
         // supply a callback to be informed when the user double clicks a row
-        this._lg.cbSelectedDataItemDblClick = function (dataItem) {
+        this._gc.cbSelectedDataItemDblClick = function (dataItem) {
             $comment.text("Row selected - double click - code: " + dataItem.code);
         };
 
-        this._lg.cbStyling = function (coldef: __gc.ColDefinition, item: any) {
+        this._gc.cbStyling = function (coldef: __gc.ColDefinition, item: any) {
             // define a new CellStyleProperties object we will return
             var styleProp: __gc.CellStyleProperies = new __gc.CellStyleProperies();
 
@@ -119,7 +119,7 @@ export class GridClient {
         var data = __data.generateSampleData(rowcount);
 
         // simply pass on the data (and their definitions) to the grid light 
-        this._lg.setData(data, this._coldefs).done(function () {
+        this._gc.setData(data, this._coldefs).done(function () {
             self._$comment.text("Grid loaded with " + rowcount + " rows.");     // let user know
         });
 
