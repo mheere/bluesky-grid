@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <style>
+        html, body {
+            margin: 0;
+            font-family: Arial, Verdana, sans-serif;
+        }
+
+        * {
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .comment {
+            width: 1000px;
+            margin: 10px;
+            padding: 10px;
+            background-color: #e6e6b4;
+            border: 1px solid darkblue;
+        }
+
+        .mygrid {
+            position: relative;
+            width: 1000px;
+            height: 405px;
+            margin: 10px;
+        }
+
+    </style>
+    <link href="BlueSkyGrid.css" rel="stylesheet" />
+    <link href="Content/font-awesome.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="comment">
+        <div class="flex-parent-row ">
+            <div class="flex-child comment-text">Please create the grid...</div>
+
+            <button id="btnCreateGrid" style="width: 140px; margin-right: 100px;">Create Grid</button>
+
+            <span>row count: </span>
+            <input type="number" class="rowcount" style="width: 60px; margin: 0 10px" value="500" />
+            <button id="apply">Apply</button>
+        </div>
+    </div>
+
+    <div class="mygrid">
+        <!--<div style="border: 3px solid red; text-align: center; padding: 10px;">
+            Best viewed in <b>Chrome</b> - IE seems less crips....
+        </div>-->
+    </div>
+
+    <script src="Scripts/jquery-2.1.4.js"></script>
+    <script src="Scripts/jquery-ui-1.11.1.js"></script>
+    <script src="Scripts/linq.js"></script>
+    <script src="Scripts/moment.js"></script>
+    <script src="Scripts/numeral/numeral.js"></script>
+    <script src="jQueryExtensions.js"></script>
+
+    <script data-main="app" src="Scripts/require.js"></script>
+
+</body>
+</html>
